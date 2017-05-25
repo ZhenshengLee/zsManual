@@ -1,0 +1,70 @@
+% 页面布局
+
+\usepackage[top=2.54cm,bottom=2.54cm,left=3.17cm,right=3.17cm]{geometry} % 用于设置页面布局
+
+
+% 字体和段落
+
+    % 章节标题显示方式
+\CTEXsetup[format={\Large\raggedright\bfseries}]{section}
+
+    % 字体设置
+% \usepackage{xeCJK}  % 用于使用本地字体
+
+
+    %设置常用中文字号，方便调用
+
+
+% 内容布局
+
+    % 页眉页脚页码
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{黎振胜}
+\rhead{\leftmark}
+\cfoot{\thepage}
+
+    % 表格和图片
+\usepackage{amssymb}
+\usepackage{amsmath}    % 在公式中用\text{文本}输入中文
+\usepackage{diagbox}    % 斜线表
+\usepackage{multirow}   % 表格中使用多行
+\usepackage{booktabs}   % 三线表
+\usepackage{rotating}   % 使用sidewaystable环境旋转表格
+\usepackage{tabularx}   % 定宽表格
+\usepackage{graphicx}   % 处理图片
+\usepackage{footnote}   % 增强的脚注功能，可添加表格脚注
+\usepackage{threeparttable} % 添加真正的表格脚注,示例见README
+\usepackage{hyperref}   % 添加pdf书签
+
+
+% 目录和文献
+
+\usepackage[super, square, sort&compress]{natbib}   % 处理参考文献
+
+% 代码格式
+\usepackage{listings}   % 添加代码高亮
+\lstset{
+	basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+	numbers=left,                   % where to put the line-numbers
+	numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+	numberstyle=\tiny,
+	stepnumber=5,                  	% the step between two line-numbers. If it is 1 each line will be numbered
+	numbersep=5pt,                  % how far the line-numbers are from the code
+	% showspaces=false,            	% show spaces adding particular underscores
+	% showstringspaces=false,      	% underline spaces within strings
+	showtabs=false,                 % show tabs within strings adding particular underscores
+	% frame=single,           		% adds a frame around the code
+	tabsize=1,          			% sets default tabsize to 2 spaces
+	breaklines=true,       			% sets automatic line breaking
+	postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}},
+	showlines=true
+}
+
+
+% 命令重定义 
+% \renewcommand{\refname}{\bfseries{参~考~文~献}} 	%将Reference改为参考文献（用于 article）
+\renewcommand{\bibname}{参~考~文~献}	%将bibiography改为参考文献（用于 book）
+\renewcommand{\baselinestretch}{1.38} 	%设置行间距
+\renewcommand{\figurename}{\small\ttfamily 图}
+\renewcommand{\tablename}{\small\ttfamily 表}
