@@ -4,14 +4,28 @@
 
 
 % 字体和段落
+	% 段落
+\sloppy % 防止长文字超出右边边界，我主要是在输入路径中出现问题
+\usepackage[hyphens]{url} % 解决脚注中太长的url超出右边界
 
     % 章节标题显示方式
 \CTEXsetup[format={\Large\raggedright\bfseries}]{section}
 
     % 字体设置
-% \usepackage{xeCJK}  % 用于使用本地字体
+\usepackage{xeCJK}  % 用于使用本地字体
 
-
+	% 标签
+\usepackage{hyperref}   % 添加pdf书签
+\hypersetup{
+	% colorlinks=true,	% 超链接渲染颜色
+	pdfborder=0 0 1,
+	pdfauthor=zhensheng, % pdf文件属性作者
+	bookmarksnumbered=true	% 书签带编号
+}
+	% 脚注
+\usepackage{footnote}   % 增强的脚注功能，可添加表格脚注
+\usepackage{pifont}
+\renewcommand\thefootnote{\ding{\numexpr171+\value{footnote}}}
     %设置常用中文字号，方便调用
 
 
@@ -33,9 +47,13 @@
 \usepackage{rotating}   % 使用sidewaystable环境旋转表格
 \usepackage{tabularx}   % 定宽表格
 \usepackage{graphicx}   % 处理图片
-\usepackage{footnote}   % 增强的脚注功能，可添加表格脚注
-\usepackage{threeparttable} % 添加真正的表格脚注,示例见README
-\usepackage{hyperref}   % 添加pdf书签
+\usepackage{threeparttable} % 添加真正的表格脚注,示例见README  
+
+	% 图表交叉引用
+% \renewcommand{\figurename}{\small\ttfamily 图}
+\renewcommand{\figureautorefname}{\small\ttfamily 图}
+% \renewcommand{\tablename}{\small\ttfamily 表}
+\renewcommand{\tableautorefname}{\small\ttfamily 表}
 
 
 % 目录和文献
@@ -45,17 +63,18 @@
 % 代码格式
 \usepackage{listings}   % 添加代码高亮
 \lstset{
-	basicstyle=\footnotesize,       % the size of the fonts that are used for the code
-	numbers=left,                   % where to put the line-numbers
-	numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
-	numberstyle=\tiny,
-	stepnumber=5,                  	% the step between two line-numbers. If it is 1 each line will be numbered
-	numbersep=5pt,                  % how far the line-numbers are from the code
+	basicstyle=\small\ttfamily,       % the size of the fonts that are used for the code
+	% language=bash,
+	% numbers=left,                   % where to put the line-numbers
+	% numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+	% numberstyle=\tiny,
+	% stepnumber=5,                  	% the step between two line-numbers. If it is 1 each line will be numbered
+	% numbersep=5pt,                  % how far the line-numbers are from the code
 	% showspaces=false,            	% show spaces adding particular underscores
-	% showstringspaces=false,      	% underline spaces within strings
-	showtabs=false,                 % show tabs within strings adding particular underscores
-	% frame=single,           		% adds a frame around the code
-	tabsize=1,          			% sets default tabsize to 2 spaces
+	showstringspaces=false,      	% underline spaces within strings
+	% showtabs=true,                 % show tabs within strings adding particular underscores
+	frame=single,           		% adds a frame around the code
+	tabsize=4,          			% sets default tabsize to 2 spaces
 	breaklines=true,       			% sets automatic line breaking
 	postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}},
 	showlines=true
@@ -63,8 +82,6 @@
 
 
 % 命令重定义 
-% \renewcommand{\refname}{\bfseries{参~考~文~献}} 	%将Reference改为参考文献（用于 article）
-\renewcommand{\bibname}{参~考~文~献}	%将bibiography改为参考文献（用于 book）
+\renewcommand{\refname}{\bfseries{参~考~文~献}} 	%将Reference改为参考文献（用于 article）
+% \renewcommand{\bibname}{参~考~文~献}	%将bibiography改为参考文献（用于 book）
 \renewcommand{\baselinestretch}{1.38} 	%设置行间距
-\renewcommand{\figurename}{\small\ttfamily 图}
-\renewcommand{\tablename}{\small\ttfamily 表}
